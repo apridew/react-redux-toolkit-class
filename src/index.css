@@ -1,0 +1,17 @@
+input {
+  padding: 10px;
+  border: 1px solid #ccccccbb;
+  border-radius: 5px;
+  color: ccccccbb;
+  &:focus {
+    outline: none;
+  }
+}
+
+label {
+  font-weight: 700;
+}
+
+#register {
+  max-width: 350px;
+}
