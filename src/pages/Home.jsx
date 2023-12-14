@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../redux/features/counter/counterSlice";
-import { registerUser } from "../redux/features/register/registerSlice";
+import {
+  clearNotif,
+  registerUser,
+} from "../redux/features/register/registerSlice";
 
 const Home = () => {
   const [name, setname] = useState("");
@@ -14,6 +17,7 @@ const Home = () => {
   );
   const dispatch = useDispatch();
 
+  useEffect(() => {}, [error]);
   console.log(
     "state =",
     value,
@@ -34,14 +38,17 @@ const Home = () => {
 
   const handleName = (e) => {
     setname(e.target.value);
+    dispatch(clearNotif());
     // console.log(e.target.value);
   };
   const handleUsername = (e) => {
     setUsername(e.target.value);
+    dispatch(clearNotif());
     // console.log(e.target.value);
   };
   const handlePassword = (e) => {
     setPassword(e.target.value);
+    dispatch(clearNotif());
     // console.log(e.target.value);
   };
 

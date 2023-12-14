@@ -27,7 +27,11 @@ const initialState = {
 export const registerSlice = createSlice({
   name: "register",
   initialState,
-  reducers: {},
+  reducers: {
+    clearNotif: (state) => {
+      (state.error = ""), (state.submit = "");
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(registerUser.pending, (state) => {
@@ -44,5 +48,7 @@ export const registerSlice = createSlice({
       });
   },
 });
+
+export const { clearNotif } = registerSlice.actions;
 
 export default registerSlice.reducer;
